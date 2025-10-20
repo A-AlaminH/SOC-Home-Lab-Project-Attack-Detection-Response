@@ -1,4 +1,5 @@
 # SOC Home Lab: C2 Attack Detection & Response with LimaCharlie
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-ahmed%20alamin-blue)](https://www.linkedin.com/in/a-alaminhussain)
 
 <div align="center">
 <img width="955" height="620" alt="SOC Home LAB Diagarm" src="https://github.com/user-attachments/assets/b6923b0b-7ef9-4ffd-ab24-35f391c01808" />
