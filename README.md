@@ -267,19 +267,8 @@ Execute the shadow copy deletion command and verify:
 <img width="1125" height="665" alt="9-shadowcopy detection worked and parent delted" src="https://github.com/user-attachments/assets/882cfcf7-3d86-4fd1-b2a0-0944c73a4f93" />
 
 
-## Detection Rules
+<img width="746" height="183" alt="10-response worked and session closed" src="https://github.com/user-attachments/assets/711e9849-9770-41c4-8083-47b76b5b89e3" />
 
-### LSASS Dumping Detection
-```yaml
-# [FINAL LSASS DUMP DETECTION RULE - PASTE YOUR ACTUAL RULE HERE]
-```
-
-### Shadow Copy Deletion Detection & Response
-```yaml
-# [FINAL SHADOW COPY DETECTION RULE - PASTE YOUR ACTUAL RULE HERE]
-
-# [FINAL RESPONSE ACTION - PASTE YOUR ACTUAL RESPONSE HERE]
-```
 
 ## Analysis Notes
 
