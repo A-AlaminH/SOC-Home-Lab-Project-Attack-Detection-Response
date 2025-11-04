@@ -135,7 +135,8 @@ use SESSION_ID
 getsystem
 ```
 
-![Privilege Escalation to SYSTEM](images/privilege-escalation.png)
+<img width="747" height="267" alt="2-upgraded session to system" src="https://github.com/user-attachments/assets/0a215e7b-c63b-43f3-8729-8b7c00ede4e5" />
+
 
 ### Step 9: LSASS Dump Attack
 
@@ -154,8 +155,10 @@ execute C:\Windows\System32\rundll32.exe C:\Windows\System32\comsvcs.dll, MiniDu
 execute C:\\Windows\\SysWOW64\\rundll32.exe C:\\Windows\\SysWOW64\\comsvcs.dll, MiniDump <PID> C:\\Windows\\Tmp\\lsass.dmp full
 ```
 
-![LSASS Dump Command Execution](images/lsass-dump-command.png)
-![LSASS Dump File Created](images/lsass-dump-file.png)
+<img width="742" height="72" alt="3-lsassDump" src="https://github.com/user-attachments/assets/76e09612-4308-4d97-9d9c-c54297ee06c3" />
+
+<img width="621" height="273" alt="4-lsass dumb" src="https://github.com/user-attachments/assets/6f54c188-1a28-4227-a986-3e09889d112e" />
+
 
 ### Step 10: Event Analysis in LimaCharlie
 
@@ -163,7 +166,8 @@ Locate the LSASS dump event in LimaCharlie timeline:
 - Look for process creation events involving rundll32 and comsvcs.dll
 - Identify the MiniDump parameter usage
 
-![LSASS Dump Event in LimaCharlie](images/lsass-event.png)
+<img width="1339" height="609" alt="4-find the event and build a DR rule" src="https://github.com/user-attachments/assets/8e8d08c3-c3dd-4e49-bb50-2c92e20ecf1d" />
+
 
 ## Detection & Response Rule 1: LSASS Dumping
 
@@ -190,13 +194,15 @@ events:
     value: MiniDump
 ```
 
-![Detection Rule Creation](images/detection-creation.png)
+<img width="1267" height="199" alt="5-testevent_detection" src="https://github.com/user-attachments/assets/1ad9efce-3904-47ed-a503-804410d9eeca" />
+
 
 ### Step 12: Test Detection
 
 Execute the LSASS dump attack again and verify the detection triggers:
 
-![Detection Working - Alert Fired](images/detection-working.png)
+<img width="1394" height="625" alt="6-detection working" src="https://github.com/user-attachments/assets/4ed3b3a0-64df-4e06-9549-df1fe20c407f" />
+
 
 ## Attack Scenario 2: Shadow Copy Deletion
 
@@ -215,7 +221,8 @@ shell
 vssadmin delete shadows /all
 ```
 
-![Windows Native Shell - Shadow Copy Deletion](images/shadowcopy-deletion.png)
+<img width="1355" height="355" alt="image" src="https://github.com/user-attachments/assets/5d831e5e-29f6-43a4-ab3c-c8df7e72603b" />
+
 
 ### Step 14: Event Analysis
 
@@ -223,7 +230,8 @@ Locate the shadow copy deletion event in LimaCharlie timeline:
 - Look for vssadmin process execution
 - Identify the "delete shadows" command
 
-![Shadow Copy Deletion Event in LimaCharlie](images/shadowcopy-event.png)
+<img width="1156" height="636" alt="8  limacharlie shadowcopy event" src="https://github.com/user-attachments/assets/e67910e4-a18a-40c5-9c91-2e19360ded18" />
+
 
 ## Detection & Response Rule 2: Shadow Copy Deletion
 
@@ -249,8 +257,6 @@ Create a detection rule for shadow copy deletion with automated response:
       value: "{{event/PID}}"
 ```
 
-![Shadow Copy Detection with Response](images/shadowcopy-detection.png)
-
 ### Step 16: Test Detection and Response
 
 Execute the shadow copy deletion command and verify:
@@ -258,7 +264,8 @@ Execute the shadow copy deletion command and verify:
 - Parent process is automatically terminated
 - Shell session ends
 
-![Detection and Response Working - Process Terminated](images/response-working.png)
+<img width="1125" height="665" alt="9-shadowcopy detection worked and parent delted" src="https://github.com/user-attachments/assets/882cfcf7-3d86-4fd1-b2a0-0944c73a4f93" />
+
 
 ## Detection Rules
 
